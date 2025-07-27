@@ -85,8 +85,25 @@ const logoutUser = async (req, res) => {
     }
 }
 
+const userProfile = async (req, res) => {
+    try {
+        const user = await UserModel.findById(req.user.userID);
+        return res.status(200).json({
+            success: true,
+            message: "User details fetched",
+            data: user
+        })
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: "Error while fetching user details"
+        });
+    }
+}
+
 export {
     registerUser,
     loginUser,
-    logoutUser
+    logoutUser,
+    userProfile
 }
