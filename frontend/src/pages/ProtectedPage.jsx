@@ -7,7 +7,7 @@ const ProtectedPage = () => {
     const [details, setDetails] = useState(null);
     const fetchUserDetails = async (req, res) => {
         try {
-            const response = await axios.get('https://mern-auth-x7cu.onrender.com/api/auth/profile', {}, {
+            const response = await axios.get('https://mern-auth-x7cu.onrender.com/api/auth/profile', {
                 withCredentials: true
             });
             setDetails(response.data.data);

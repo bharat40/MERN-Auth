@@ -7,7 +7,7 @@ const ProtectedRoute = ({ children }) => {
     useEffect(() => {
         const getProtectedData = async () => {
             try {
-                const response = await axios.get('https://mern-auth-x7cu.onrender.com/api/protected',{},  {
+                const response = await axios.get('https://mern-auth-x7cu.onrender.com/api/protected',  {
                     withCredentials: true
                 });
                 setIsAuthenticated(true);
