@@ -19,7 +19,7 @@ const ProtectedPage = () => {
         try {
             const response = await axios.post('http://localhost:5000/api/auth/logout', {}, { withCredentials: true });
             alert(response.data.message);
-            navigate('/login');
+            navigate('/');
         } catch (error) {
             alert(error.response.data.message);
         }
@@ -29,19 +29,21 @@ const ProtectedPage = () => {
     }, []);
 
     return (
-        <div>
-            <h1>Protected Page</h1>
-            {
-                details && (
-                    <div>
-                        <span>username: {details.username}</span>
-                        <span>email: {details.email}</span>
-                    </div>
-                )
-            }
+        <section className='bg-gray-300 flex justify-center h-screen'>
+            <div className='flex flex-col items-center gap-[10px] mt-[30px] bg-white h-max p-3'>
+                <h1 className='font-bold text-lg'>Protected Page</h1>
+                {
+                    details && (
+                        <div className='flex flex-col gap-[5px]'>
+                            <span className='text-gray-800'>Username: {details.username}</span>
+                            <span className='text-gray-800'>Email: {details.email}</span>
+                        </div>
+                    )
+                }
 
-            <button type="button" onClick={() => handleLogout()}>logout</button>
-        </div>
+                <button type="button" className='p-2 bg-blue-400 text-white shadow' onClick={() => handleLogout()}>logout</button>
+            </div>
+        </section>
     )
 }
 
