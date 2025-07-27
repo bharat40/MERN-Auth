@@ -11,10 +11,7 @@ const app = express();
 // middlewares
 app.use(cookieParser());
 app.use(express.json());
-app.use(cors({
-    origin: 'https://mern-auth-1-10qp.onrender.com',
-    credentials: true
-}));
+app.use(cors());
 
 
 // test api
