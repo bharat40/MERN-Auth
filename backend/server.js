@@ -12,7 +12,7 @@ const app = express();
 app.use(cookieParser());
 app.use(express.json());
 app.use(cors({
-    origin: 'https://mern-auth-x7cu.onrender.com',
+    origin: 'https://mern-auth-1-10qp.onrender.com',
     credentials: true
 }));
 
