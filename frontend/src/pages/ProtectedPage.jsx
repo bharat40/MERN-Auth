@@ -7,7 +7,7 @@ const ProtectedPage = () => {
     const [details, setDetails] = useState(null);
     const fetchUserDetails = async (req, res) => {
         try {
-            const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/auth/profile`, {
+            const response = await axios.get("http://localhost:5000/api/auth/profile", {
                 withCredentials: true
             });
             setDetails(response.data.data);
@@ -17,7 +17,7 @@ const ProtectedPage = () => {
     }
     const handleLogout = async (req, res) => {
         try {
-            const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/logout`, {}, { withCredentials: true });
+            const response = await axios.post("http://localhost:5000/api/auth/logout", {}, { withCredentials: true });
             alert(response.data.message);
             navigate('/');
         } catch (error) {
