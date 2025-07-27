@@ -9,7 +9,7 @@ const Register = () => {
     const [password, setPassword] = useState('');
     const handleUserRegister = async (e) => {
         e.preventDefault();
-        const response = await axios.post('https://mern-auth-x7cu.onrender.com/api/auth/register', {
+        const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/register`, {
             username: username.trim(),
             email: email.trim(),
             password: password.trim()
